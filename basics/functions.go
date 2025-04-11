@@ -36,3 +36,13 @@ func main() {
 	fmt.Println("Quotient:", quotient)
 	fmt.Println("Remainder:", remainder)
 }
+
+
+/*
+konnichiwa!
+Sum: 7
+Product: 30
+Quotient: 3
+Remainder: 1
+*/
+
