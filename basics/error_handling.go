@@ -25,25 +25,39 @@ func (e *InvalidAgeError) Error() string {
 	return fmt.Sprintf("%s: %d is not a valid age", e.Message, e.Age)
 }
 
+// Function using our custom error type
+func validateAge(age int) error {
+	if age < 0 {
+		return &InvalidAgeError{
+			Age:     age,
+			Message: "Negative age provided",
+		}
+	}
+	if age > 150 {
+		return &InvalidAgeError{
+			Age:     age,
+			Message: "Age too high",
+		}
+	}
+	return nil // no error here
+}
+
 func main() {
-	// Demonstrate the divide function
-	fmt.Println("=== RUNNING divide() ===")
-	res, err := divide(10, 2)
+	fmt.Println("=== Running Snippet 1 + 2 ===")
+
+	// Test divide
+	result, err := divide(100, 5)
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println("Divide error:", err)
 	} else {
-		fmt.Println("Result:", res)
+		fmt.Println("Division result:", result)
 	}
 
-	res, err = divide(10, 0)
+	// Test validateAge
+	err = validateAge(160)
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println("Validation error:", err)
 	} else {
-		fmt.Println("Result:", res)
+		fmt.Println("Age is valid")
 	}
-
-	// Demonstrate custom error type
-	fmt.Println("\n=== CUSTOM ERROR TYPE ===")
-	var customErr error = &InvalidAgeError{Age: -3, Message: "Invalid age"}
-	fmt.Println("Custom error message:", customErr)
 }
