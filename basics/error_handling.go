@@ -44,6 +44,6 @@ func main() {
 
 	// Demonstrate custom error type
 	fmt.Println("\n=== CUSTOM ERROR TYPE ===")
-	err = (&InvalidAgeError{Age: -3, Message: "Invalid age"}).Error()
-	fmt.Println("Custom error message:", err)
+	var customErr error = &InvalidAgeError{Age: -3, Message: "Invalid age"}
+	fmt.Println("Custom error message:", customErr)
 }
