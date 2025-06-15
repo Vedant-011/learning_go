@@ -29,6 +29,17 @@ func main() {
 	var k complex64 = complex(1, 2) // 1+2i
 	var l complex128 = cmplx.Sqrt(-5 + 12i)
 
+	// 4. BYTE and RUNE
+	var m byte = 65  // byte is an alias for uint8 (ASCII character)
+	var n rune = 'あ' // rune is an alias for int32 (Unicode character)
+
+	// 5. Boolean
+	var o bool = true
+	var p bool = false
+
+	// 6. String
+	var q string = "Hello, Go!"
+
 	// Print everything to see the values
 	fmt.Println("INTEGERS:")
 	fmt.Println("int8:", a)
@@ -47,4 +58,15 @@ func main() {
 	fmt.Println("\nCOMPLEX NUMBERS:")
 	fmt.Println("complex64:", k)
 	fmt.Println("complex128:", l)
+
+	fmt.Println("\nBYTE and RUNE:")
+	fmt.Println("byte:", m, "as character:", string(m))
+	fmt.Println("rune:", n, "as character:", string(n))
+
+	fmt.Println("\nBOOLEAN:")
+	fmt.Println("bool (true):", o)
+	fmt.Println("bool (false):", p)
+
+	fmt.Println("\nSTRING:")
+	fmt.Println("string:", q)
 }
